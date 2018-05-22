@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <!--load everything-->
+  <script defer src="/static/fontawesome/fontawesome-all.js"></script>
+    <script defer src="/static/fontawesome/fontawesome-all.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Personal Trainer Lorenzo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- El css del index  -->
+  <link href="css/quiensoy.css" rel="stylesheet">
+
+</head>
+<script type="text/javascript">
+    /**
+ * Ejemplo: Uso de la API de Google Maps
+ */
+
+(function() {
+    'use strict';
+
+    var myMarker = null;
+
+    // Receives a map object and a latLng object where it will create a marker
+    function createMarker(map, latLng, color) {
+        var opts = {
+            position: latLng,
+            map: map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/' + color + '-dot.png'
+        };
+
+        // Creamos un marcador para el mapa con una ventana de información asociada
+        var marker = new google.maps.Marker(opts);
+        google.maps.event.addListener(marker, 'click', function(event) {
+            var infoWindow = new google.maps.InfoWindow();
+            infoWindow.setContent("Marcador en lat: " + event.latLng.lat().toFixed(6) +
+            ", lng: " + event.latLng.lng().toFixed(6));
+            infoWindow.open(map, marker);
+        });
+    }
+
+    function showMap(pos) {
+        console.log(pos);
+        var p = document.getElementById("coordinates");
+        p.textContent = "Latidude: " + pos.coords.latitude +
+            ". Longitude: " + pos.coords.longitude +
+            " (accuracy: " + pos.coords.accuracy + ")";
+
+        var gLatLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        console.log(gLatLng);
+        var opt = {
+            zoom: 15, // Map zoom (min: 0, max: 20)
+            center: gLatLng, // Centramos el mapa en nuestra posición
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var mapDiv = document.getElementById("map");
+        var map = new google.maps.Map(mapDiv, opt);
+
+        myMarker = createMarker(map, gLatLng, "green");
+
+        google.maps.event.addListener(map, 'click', function(event) {
+            var coordsP = document.getElementById("coordinates");
+
+            map.panTo(event.latLng);
+
+            createMarker(map, event.latLng, 'pink');
+
+            var dist = google.maps.geometry.spherical.computeDistanceBetween(
+                gLatLng, // Nuestra posición
+                event.latLng // Posición marcada
+            );
+
+            coordsP.textContent = "Click en lat: " + event.latLng.lat() +
+                ", lng: " + event.latLng.lng() + "Distancia de ti: " +
+                (Math.round(dist)/1000) + "km";
+        });
+        /*BANDERAS EN EL MAPA DE LOS SITIOS DE NUTRICION*/
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+          var beachMarker = new google.maps.Marker({
+            position: {lat:  39.454811, lng: -0.395648},
+            map: map,
+            icon: image
+          });
+          var image1 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+            var beachMarker = new google.maps.Marker({
+              position: {lat:  39.4546143, lng: -0.3947114},
+              map: map,
+              icon: image1
+            });
+            var image2 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+              var beachMarker = new google.maps.Marker({
+                position: {lat:  39.4578789, lng: -0.3944063000000142},
+                map: map,
+                icon: image2
+              });
+              var image3 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+                var beachMarker = new google.maps.Marker({
+                  position: {lat: 39.4542436, lng: -0.3996971000000258},
+                  map: map,
+                  icon: image3
+                });
+                var image4 = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+                  var beachMarker = new google.maps.Marker({
+                    position: {lat: 39.4431674, lng: -0.35669819999998253},
+                    map: map,
+                    icon: image4
+                  });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+
+    }
+
+    function errorLocate(error) {
+        var p = document.getElementById("coordinates");
+        switch(error.code) {
+            case error.PERMISSION_DENIED: // El usuario impide la localización
+                p.textContent = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE: // No se pudo obtener la localización
+                p.textContent = "Location information is unavailable."
+                break;
+            case error.TIMEOUT: // Ha expirado el tiempo para obtener la localización
+                p.textContent = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                p.textContent = "An unknown error occurred."
+                break;
+        }
+    }
+
+
+    // Esperamos hasta que el DOM haya cargado antes de empezar (así la API de GMaps estará cargada)
+    window.addEventListener('DOMContentLoaded', function() {
+        navigator.geolocation.getCurrentPosition(showMap, errorLocate); // Nos geolocalizamos
+    });
+
+})();
+
+    </script>
+
+
+<body>
+<!--Aqui empieza la cabecera-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
+        <a class="navbar-brand" href="index.html"><img src="img/logo1.svg"  height="90px"  alt="Foto Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="quienSoy.html">Quienes Somos?</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="tienda.html">Asesoramiento</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+              <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Log In</button></a>
+
+              <br><br>
+            <a    >  <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Registrarse</button></a>
+
+
+          </form>
+      </div>
+    </nav>
+    <!--Aqui empieza el login modal-->
+    <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content form-elegant">
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Web Personal Trainer Lorenzo </strong></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mx-4">
+                    <!--Body-->
+                    <div class="md-form mb-5">
+                        <input type="email" id="Form-email1" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="Form-email1">Introduce tu correo</label>
+                    </div>
+
+                    <div class="md-form pb-3">
+                        <input type="password" id="Form-pass1" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="Form-pass1">Introduce tu contraseña</label>
+                        <p class="font-small blue-text d-flex justify-content-end">Olvidaste <a href="#" class="blue-text ml-1"> Contraseña?</a></p>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button type="button" class="btn btn-danger btn-block btn-rounded z-depth-1a">Sign in</button>
+                    </div>
+                    <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+
+                        <div class="row my-3 d-flex justify-content-center">
+                            <!--Facebook-->
+                            <button type="button" class="btn btn-danger btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook text-center"></i></button>
+                            <!--Twitter-->
+                            <button type="button" class="btn btn-danger btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"></i></button>
+                            <!--Google +-->
+                            <button type="button" class="btn btn-danger btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-google-plus"></i></button>
+                        </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer mx-5 pt-3 mb-1">
+                    <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1"> Sign Up</a></p>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+  <!-- AQUI ACABA EL LOGIN---->
+    <main role="main" class="container">
+      <!--        AQUI EMPIEZA MI CONTENIDO DE LA PAGINA-->
+      <h1>Nutricionista y Personal Trainer | Online – Presencial</h1>
+
+       <br><br><br>
+       <img widht="200px" height="150px"src="img/personalT.jpg" alt="foto nombre tienda" id="foton" style="margin-right:30px">
+         <h3>Bienvenidos/as a Nuestra pagina de Personal Trainer</h3>
+         <p>Somos una pequeña comunidad que se dedica a ayudar de manera gratuita (dando consejos ) y tambien realizamos asesoramientos
+           presenciales.
+           Tenemos un blog donde registrandote podras dejar comentarios y nosotros resolver tus dudas o incluso pedir cita
+           para asesoramiento presencial.<br>
+       </p><br>
+
+       <h3>Todos nuestros Nutricionistas y Personals Trainers tienen estas Titulaciones:</h3>
+       <p>– Técnico en nutrición y Personal Trainer.</p>
+       <p>– NSCA Certified Personal Trainer.</p>
+
+       <h3>Propositos?</h3>
+       <p>Somos una pequeña comunidad que vamos creciendo poco a poco gracias a nuestros clientes satisfechos de los cambios
+       que han logrado gracias a nuestras ayudas y a sus ganas de darlo todo para conseguir el cuerpo que siempre han deseado.
+     Esperamos ser una gran comunidad con el tiempo y poder alegrar a todos los clientes que quieran un cambio tanto fisico como de salud.
+    Cualquier duda que tengais , os tendreis que registrar y comentar en nuestro blog. Para luego poder contestar a esas dudas .
+    Recordad que si quereis un cambio físico y de salud , aparte de nuestra ayuda ,tendreís que darlo todo vosotros tambien y sacrificaros al 100%
+    en los entrenes, dietas .
+    Recordad "NEVER GIVE UP!!"</p>
+
+
+       <div class="span12">
+    <p id="coordinates"></p>
+    <p>Usted se encuentra aqui:</p>
+    <div id="map"></div>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgIXj_VJaqQ_SToSJ5R_97AthYlRakoyY&libraries=geometry">
+    </script>
+  </div>
+
+
+
+
+    </main>
+<!-- /.container -->
+<!-- Footer-Aqui comienza el footer -->
+<footer>
+    <div class="footer bg-dark" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Noticias </h3>
+                    <ul>
+                        <li> <a href="#"> Novedades </a> </li>
+                        <li> <a href="#"> Perdes grasa Sin cardio </a> </li>
+                        <li> <a href="#"> Dieta Flexible? </a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3>Links populares</h3>
+                    <ul>
+                        <li> <a href="#">Dietas</a> </li>
+                        <li> <a href="#">Entrenes</a> </li>
+                        <li> <a href="#">Reto 90 dias</a> </li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3>Mas info: </h3>
+                    <ul>
+                      <li> <a href="#">642168553</a></li>
+                      <li> <a href="#">Ptrainer@gmail.com</a></li>
+
+
+
+                    </ul>
+                </div>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Metodos pago </h3>
+                    <ul class="nav nav-pills payments">
+                        <li><i class="fa fa-cc-visa fa-2x"></i></li>
+                        <li><i class="fa fa-cc-mastercard fa-2x"></i></li>
+                        <li><i class="fa fa-cc-amex fa-2x"></i></li>
+                        <li><i class="fa fa-cc-paypal fa-2x"></i></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                    <h3> Sigueme en: </h3>
+
+                    <ul class="social">
+                        <li> <a href="#"> <i class=" fa fa-facebook"> </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-twitter"></i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-google-plus"></i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-pinterest"></i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-youtube"></i> </a> </li>
+                    </ul>
+                </div>
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.footer-->
+</footer>
+</body>
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</html>
