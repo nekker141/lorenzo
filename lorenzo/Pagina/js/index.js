@@ -13,10 +13,21 @@
 
 
       if(nombre != null){
-        botones.innerHTML = "Bienvenido "+nombre+"!";
+        botones.innerHTML = "Bienvenido "+nombre+"! <button type='button' class='btn btn-warning' id='cerrarsesion' style='margin-left:30px'>Salir</button>";
+        botones.style.color = "white";
       }else if(nombre2 != null){
-        botones.innerHTML = "Bienvenido "+nombre2+"!";
+        botones.innerHTML = "Bienvenido "+nombre2+"! <button type='button' class='btn btn-warning' id='cerrarsesion' style='margin-left:30px'>Salir</button>";
+        botones.style.color = "white";
       }
+
+    // Botón cerrar sesión
+
+      $("#cerrarsesion").click(function(){
+        alert("hola");
+        sessionStorage.removeItem("username");
+        localStorage.removeItem("username");
+        window.location.href = "index.html";
+      });
 
           //BOTON LOGIN
       $("#login").submit(function(e){
@@ -35,9 +46,11 @@
                   var nombre2 = localStorage.getItem("username");
 
                   if(nombre != null){
-                    botones.innerHTML = "Bienvenido "+nombre+"! <button type='button' class='btn btn-warning' id='cerrarsesion'>Salir</button>";
+                    botones.innerHTML = "Bienvenido "+nombre+"! <button type='button' class='btn btn-warning' id='cerrarsesion' style='margin-left:30px'>Salir</button>";
+                    botones.style.color = "white";
                   }else if(nombre2 != null){
-                    botones.innerHTML = "Bienvenido "+nombre2+"! <button type='button' class='btn btn-warning' id='cerrarsesion'>Salir</button>";
+                    botones.innerHTML = "Bienvenido "+nombre2+"! <button type='button' class='btn btn-warning' id='cerrarsesion' style='margin-left:30px'>Salir</button>";
+                    botones.style.color = "white";
                   }
 
                   $('#cerrar').click();
@@ -47,9 +60,10 @@
                   err.innerHTML = "Usuario incorrecto";
                 }
 
-                //Botón cerrar seision
+                // Botón cerrar sesión
 
                 $("#cerrarsesion").click(function(){
+                  alert("hola");
                   sessionStorage.removeItem("username");
                   localStorage.removeItem("username");
                   window.location.href = "index.html";
