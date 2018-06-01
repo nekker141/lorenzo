@@ -6,8 +6,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <!--JS DEL FORMULARIO-->
-    <script src='js/funciones.js'></script>
     <!--load everything-->
   <script defer src="/static/fontawesome/fontawesome-all.js"></script>
     <script defer src="/static/fontawesome/fontawesome-all.js"></script>
@@ -18,14 +16,13 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <link href="js/index.js" rel="stylesheet">
     <!--LOGO EN LA VENTANA NAVEGACION ARRIBA-->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- El css del index  -->
   <link href="css/tienda.css" rel="stylesheet">
 
 </head>
-
 
 
 <body>
@@ -39,7 +36,7 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -48,11 +45,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="blog.html">Blog</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="asesoramiento.html">Asesoramiento</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0" id="botones">
                 <a href="" class="btn btn-default btn-rounded" data-toggle="modal"  data-target="#botonlogin"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Iniciar Sesión</button></a>
 
                 <br><br>
@@ -72,12 +69,12 @@
       <div class="modal-content">
         <div class="modal-header text-center">
             <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" ><strong>Web Personal Trainer Lorenzo </strong></h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-           <form action="#" method="post" id="botonlogin1">
+           <form action="#" method="post" id="login">
             <div class="form-group">
               <label for="usuario">Usuario:</label>
               <input type="text" class="form-control" id="usuario" placeholder="" name="usu">
@@ -87,7 +84,7 @@
               <input type="password" class="form-control" id="pass" placeholder="" name="pass">
             </div>
             <button  class="btn btn-danger btn-block btn-rounded z-depth-1a" type="submit" >Iniciar Sesión</button><br>
-            <div class='error'>
+            <div id="errores" class='errores'>
 
             </div>
           </form>
@@ -105,14 +102,14 @@
     <div class="modal-content">
       <div class="modal-header text-center">
           <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="registrarse"><strong>Web Personal Trainer Lorenzo </strong></h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
               <span aria-hidden="true">&times;</span>
           </button>
       </div>
       <div class="modal-body">
-          <form class="form-signin" id="registro" name="formulario" onsubmit="return validarFormulario()" method="post">
+          <form class="form-signin" id="registro" name="formulario" method="post">
           <div class="form-group">
-            <label for="usuario">Usuario:</label>
+            <label for="usuario">Nombre:</label>
             <input type="text" class="form-control" id="usuario1" placeholder="" name="usu1">
           </div>
           <div class="form-group">
@@ -125,13 +122,13 @@
           </div>
           <div class="form-group">
               <label for="confpass">Confirmar Contraseña:</label>
-            <input type="password" class="form-control" id="confpass" placeholder="">
+            <input type="password" class="form-control" id="confpass" placeholder="" name="pass2">
           </div>
-          <button type="button" class="btn btn-danger btn-block btn-rounded z-depth-1a">Registrarse</button><br>
+          <button type="submit" class="btn btn-danger btn-block btn-rounded z-depth-1a" id="enviar">Registrarse</button><br>
           <div class="checkbox">
             <label><input type="checkbox" value="" id="condiciones"> Acepto los<a href="#">Términos y condiciones.</a></label>
           </div>
-          <div class='error2'>
+          <div id="error2" class='error2'>
 
           </div>
         </form>
@@ -148,121 +145,78 @@
 
     <main role="main" class="container">
       <!-- Titulo y Servicios       AQUI EMPIEZA MI CONTENIDO DE LA PAGINA-->
-          <h1>Asesoramiento presencial en nuestras tiendas</h1>
+          <h2> Dieta Volumen:</h2>
 
-           <br><br><br>
-           <div align="center">
-           <img widht="200px" height="150px"src="img/asesoramiento1.jpeg" alt="foto nombre tienda" id="foton" style="margin-right:30px">
-         </div>
-         <br>
-         <br>
-             <h3>Bienvenidos/as a Nuestra pagina de Personal Trainer</h3>
-             <p style="text-align:left">Aqui vas a encontrar la ayuda que necesitas con mis planes de dieta y entrenamiento totalmente pensados para ti y
-                para que cumplas tu objetivo.
-               Porque con mi apoyo y con el de mi equipo, conseguirás resultados y eso hará que te motives y que logres ver cambios de manera
-                definitiva. Una de las claves para conseguirlos, será que disfrutes al máximo del proceso y que no suponga un gran sacrificio cumplir
-                con el programa. Y eso lo haremos adaptando al máximo tu plan para que sea lo más llevadero posible. Mi máxima es que logres sentirte
-                bien tanto física como mentalmente y que te suponga un proceso lo más sencillo y llevadero posible.
-                Quiero que consigas cambios, quiero que te motives y quiero que disfrutes al máximo consiguiendo tu objetivo.
-                ¿EMPEZAMOS?
-              <strong>Completa el formulario para recibir un correo con la fecha del dia que podremos asesorarte!<strong>
-                <br>
-           </p><br>
           <div class="row">
-            <div class="col-lg-12 col-sm-12 portfolio-item">
+            <div class="col-lg-4 col-sm-6 portfolio-item">
               <!--Estas son  las cajas que he creado con cada servicio-->
               <div class="card h-100">
-                <h4 style="text-align:center">Formulario solicitar cita:</h4>
-                <br>
-                <form class="needs-validation" novalidate>
-                  <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom01">Nombre</label>
-        <input type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
-        <div class="invalid-feedback">
-          Porfavor completa campo usuario.
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom02">Usuario</label>
-        <input type="text" class="form-control" id="validationCustom02" placeholder="" value="" required>
-        <div class="invalid-feedback">
-          Porfavor completa campo usuario.
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationCustomUsername">Correo</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend">@</span>
-          </div>
-          <input type="text" class="form-control" id="validationCustomUsername" placeholder="" aria-describedby="inputGroupPrepend" required>
-          <div class="invalid-feedback">
-            Porfavor completa campo correo.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label for="validationCustom03">Ciudad</label>
-        <input type="text" class="form-control" id="validationCustom03" placeholder="Ciudad" required>
-        <div class="invalid-feedback">
-          Porfavor completa campo ciudad.
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="validationCustom04">Provincia</label>
-        <input type="text" class="form-control" id="validationCustom04" placeholder="Provincia" required>
-        <div class="invalid-feedback">
-          Porfavor completa campo provincia.
-        </div>
-      </div>
-      <br>
-      <div class="col-md-3 mb-3">
-        <label for="validationCustom05">Motivo cita:</label>
-        <textarea rows='3'id="validationCustom05" class='mensaje'></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-        <label class="form-check-label" for="invalidCheck">
-          Acepta las condiciones.
-        </label>
-        <div class="invalid-feedback">
-          Tienes que aceptar las condiciones para enviar formulario.
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-primary" type="submit">Enviar Formulario</button>
-  </form>
-  <script>
-(function() {'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
+                <a href="#"><img class="card-img-top" src="img/volumen11.jpeg" alt="Foto Dietas"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">Dieta Volumen 1:</a>
+                  </h4>
+                  <p class="card-text">
+                  <br> 7.00 : 8 claras huevo + 120gr arroz
+                  <br> 10.00: 200gr pollo + 100gr arroz
+                  <br> 14.00: 180gr pollo + 120gr arroz + 1 kiwi
+                  <br> 17.00: 180gr atun/pollo + 100gr arroz
+                  <br> 22.00: 200 gr ternera + 100 gr ensalada
+                  <br> 00.00: 1 yougur bifidus natural + 30 gr nueces
 
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})(alert("El formulario ha sido enviado,pronto recibira un correo con la fecha de la cita"));
-</script>
+
+                  </p>
+
                 </div>
               </div>
             </div>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="img/volumen2.jpeg" alt="Foto dieta"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">Dieta Volumen 2:</a>
+                  </h4>
+                  <p class="card-text">
+                    <br> 7.00 : 8 claras huevo + 100gr avena
+                    <br> 10.00: 200gr pollo + 100gr arroz basmati
+                    <br> 14.00: 180gr pollo + 130 gr arroz basmati/macarrones + 1 kiwi
+                    <br> 17.00: 180gr atun/pollo + 120gr arroz basmati
+                    <br> 22.00: 200 gr ternera + 100gr patata
+                    <br> 00.00: 125gr yougur griego + 30 gr nueces
+                  </p>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="img/volumen3.jpeg" alt="Foto Dieta"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">Dieta Volumen 3:</a>
+                  </h4>
+                  <p class="card-text">
+                    <br> 7.00 : 7 claras huevo +60gr avena + 1 manzana
+                    <br> 10.00: 180gr pavo + 80gr arroz
+                    <br> 14.00: 180gr pollo + 100 gr ensalada
+                    <br> 17.00: 180gr atun/pollo + 80gr arroz
+                    <br> 22.00: 200 gr ternera + 80gr patata + 100gr tomate
+                    <br> 00.00: 1 yougur bifidus natural + 30 gr nueces
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /.row -->
+
+
+          <hr>
+        </div>
     </main>
 <!-- /.container -->
-
-</body>
 <!-- Footer-Aqui comienza el footer -->
 <footer>
     <div class="footer bg-dark" id="footer">
@@ -301,6 +255,8 @@
     </div>
     <!--/.footer-->
 </footer>
+</body>
+
 
 
 <!-- Bootstrap core JavaScript
@@ -309,6 +265,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script src="js/index.js"></script>
 
 </html>

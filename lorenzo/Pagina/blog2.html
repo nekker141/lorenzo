@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/blog.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <link href="js/index.js" rel="stylesheet">
     <title>Personal Trainer Lorenzo</title>
 
     <!-- Bootstrap core CSS -->
@@ -97,7 +97,7 @@
                 <a class="nav-link" href="asesoramiento.html">Asesoramiento</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" id="botones">
             <a href="" class="btn btn-default btn-rounded" data-toggle="modal"  data-target="#botonlogin"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Iniciar Sesión</button></a>
 
             <br><br>
@@ -115,12 +115,12 @@
 <div class="modal-content">
   <div class="modal-header text-center">
       <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" ><strong>Web Personal Trainer Lorenzo </strong></h3>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar">
           <span aria-hidden="true">&times;</span>
       </button>
   </div>
   <div class="modal-body">
-     <form action="#" method="post" id="botonlogin1">
+     <form action="#" method="post" id="login">
       <div class="form-group">
         <label for="usuario">Usuario:</label>
         <input type="text" class="form-control" id="usuario" placeholder="" name="usu">
@@ -130,7 +130,7 @@
         <input type="password" class="form-control" id="pass" placeholder="" name="pass">
       </div>
       <button  class="btn btn-danger btn-block btn-rounded z-depth-1a" type="submit" >Iniciar Sesión</button><br>
-      <div class='error'>
+      <div id="errores" class='errores'>
 
       </div>
     </form>
@@ -148,14 +148,14 @@
 <div class="modal-content">
 <div class="modal-header text-center">
     <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="registrarse"><strong>Web Personal Trainer Lorenzo </strong></h3>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
-    <form class="form-signin" id="registro" name="formulario" onsubmit="return validarFormulario()" method="post">
+    <form class="form-signin" id="registro" name="formulario" method="post">
     <div class="form-group">
-      <label for="usuario">Usuario:</label>
+      <label for="usuario">Nombre:</label>
       <input type="text" class="form-control" id="usuario1" placeholder="" name="usu1">
     </div>
     <div class="form-group">
@@ -168,13 +168,13 @@
     </div>
     <div class="form-group">
         <label for="confpass">Confirmar Contraseña:</label>
-      <input type="password" class="form-control" id="confpass" placeholder="">
+      <input type="password" class="form-control" id="confpass" placeholder="" name="pass2">
     </div>
-    <button type="button" class="btn btn-danger btn-block btn-rounded z-depth-1a">Registrarse</button><br>
+    <button type="submit" class="btn btn-danger btn-block btn-rounded z-depth-1a" id="enviar">Registrarse</button><br>
     <div class="checkbox">
       <label><input type="checkbox" value="" id="condiciones"> Acepto los<a href="#">Términos y condiciones.</a></label>
     </div>
-    <div class='error2'>
+    <div id="error2" class='error2'>
 
     </div>
   </form>
@@ -187,6 +187,26 @@
     <!--Aqui empieza el carousel-->
     <style>
     body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    /*HAGO TABLA RESPONSIVE*/
+    .table-container{
+    width: 100%;
+    overflow-y: auto;
+    _overflow: auto;
+    margin: 0 0 1em;
+      }
+      .table-container::-webkit-scrollbar
+{
+-webkit-appearance: none;
+width: 14px;
+height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb
+{
+border-radius: 8px;
+border: 3px solid #fff;
+background-color: rgba(0, 0, 0, .3);
+}
     </style>
     <body class="w3-light-grey">
 
@@ -199,51 +219,69 @@
 <div class="w3-col l8 s12">
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-    <img src="img/fuerza.jpeg" alt="Nature" style="width:100%">
+  <img src="img/cambios.jpeg" alt="Norway" style="width:100%">
     <div class="w3-container">
-      <h3><b>Potencia Muscular</b></h3>
-      <h5>Ejercicios para potenciar Masa muscular,<span class="w3-opacity">Abril 8, 2014</span></h5>
+      <h3><b>Como definir(bajar peso)</b></h3>
+      <h5>Bajar Peso, <span class="w3-opacity">Abril 2, 2014</span></h5>
     </div>
 
     <div class="w3-container">
-      <p>En este post se explcia como mejorar la potencia muscular , mediante ejercicios muy Basicos. Realizando todos los consejos
-      que os damos a continuación lograreis conseguir esa potencia muscular.</p>
-      <div class="w3-row">
-        <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Leer más»</b></button></p>
-        </div>
-        <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Comentarios  </b> <span class="w3-tag">0</span></span></p>
-        </div>
-      </div>
+      <p>En este post os explicamos como bajar peso mediante algunos trucos fáciles
+        de realizar. Los cambios apareceran en poco tiempo.<br>
+        Posiblemente definir músculo sea la tarea más complicada en el gimnasio. Después de la fase de
+        volumen donde aumentamos el tamaño de los músculos, llega la hora de definir para que éstos puedan
+        verse.
+         Aunque son muchos los factores a tener en cuenta para realizar una buena definición muscular nos
+         vamos a centrar en los tres básicos.
+        Consumir las reservas de grasa .Es lo principal, ya que es la capa que va delante del músculo y hay
+        que quitarla de en medio. El trabajo aeróbico es el mejor aliado en nuestra rutina para comenzar a
+         quemar grasas. Debemos hacer aeróbico de 3-6 horas a la semana, a ser posible el día que no
+         entrenemos con pesas o después de éstas.
+         Hay varias elecciones para el trabajo aeróbico, una buena idea es ir alternando y
+         hacer una actividad diferente cada sesión, así evitamos que el aeróbico se convierta en un
+         aburrimiento. También podemos meter en la misma sesión de aeróbico varias actividades con máquinas:
+          elíptica, cinta de correr, bici o remo. Con 10-15 minutos en cada actividad habremos hecho una
+          sesión de cardio completa y entretenida.</p>
+         <div class="table-container">
+         <form id="form1" name="form1" method="post" action="enviar.php" onsubmit="return verifica()">
+                 <table width="80" border="0"  bgcolor="#FFFFFF">
+                       <tr>
+                         <td colspan="2"><div align="center" class="style30 style44">Deja tu Comentarios:</div></td>
+                       </tr>
+                       <tr>
+                         <td ><span class="style21 style29 style44">Usuario</span></td>
+                         <td width="80" bgcolor="#FFFFFF"><div align="center" class="style29">
+                             <input name="tema" type="text" id="tema" size="10" />
+                         </div></td>
+                       </tr>
+                       <tr>
+                         <td><span class="style21 style29 style44">Comentario</span></td>
+                         <td><span class="style29">
+                           <label></label>
+                           <textarea name="comentario" id="comentario" rows="5" cols="20"></textarea>
+                         </span></td>
+                       </tr>
+                       <tr>
+                         <td colspan="2"><div align="center">
+                             <input type="submit" name="Submit" value="enviar" />
+                         </div></td>
+                       </tr>
+           </table>
+         </form>
+
+                     <table width="53%" border="0" align="center" cellpadding="0" cellspacing="0">
+                       <tr>
+                         <td align="center"><?php
+           readfile ("texto.txt")
+           ?></td>
+                       </tr>
+                     </table>
+
+         </div>
     </div>
   </div>
   <hr>
-
-  <!-- Blog entry -->
-  <div class="w3-card-4 w3-margin w3-white">
-  <img src="img/cambios.jpeg" alt="Norway" style="width:100%">
-    <div class="w3-container">
-      <h3><b>Cambios Clientes</b></h3>
-      <h5>Cambios de nuestros clientes, <span class="w3-opacity">Abril 2, 2014</span></h5>
-    </div>
-
-    <div class="w3-container">
-      <p>En este post os mostraremos todos los cambios de nuestros clientes, que han seguido todos los pasos de nuestros
-      asesoramientos y han conseguido el cuerpo que siempre han deseado.</p>
-      <div class="w3-row">
-        <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Leer más»</b></button></p>
-        </div>
-        <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Comentarios </b> <span class="w3-badge">2</span></span></p>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- END BLOG ENTRIES -->
 </div>
-
 <!-- Introduction menu -->
 <div class="w3-col l4">
   <!-- Info del personal Trainer -->
@@ -302,13 +340,14 @@
   </div>
 
 <!-- Fin de la introduccion menu -->
-</div>
-
 <!-- Fin del grid-->
 </div><br>
 
-<!-- Fin del w3-content -->
+
 </div>
+
+<!-- Fin del w3-content -->
+
 
 
     </main>
@@ -361,6 +400,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script src="js/index.js"></script>
 
 </html>

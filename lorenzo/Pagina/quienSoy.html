@@ -10,6 +10,8 @@
   <script defer src="/static/fontawesome/fontawesome-all.js"></script>
     <script defer src="/static/fontawesome/fontawesome-all.js"></script>
 
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Personal Trainer Lorenzo</title>
@@ -17,10 +19,11 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!--LOGO EN LA VENTANA NAVEGACION ARRIBA-->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="js/index.js" rel="stylesheet">
     <!-- El css del index  -->
-  <link href="css/quiensoy.css" rel="stylesheet">
+  <link href="css/quienSoy.css" rel="stylesheet">
+  <!--LOGO EN LA VENTANA NAVEGACION ARRIBA-->
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
 </head>
 <script type="text/javascript">
@@ -154,87 +157,114 @@
 
 <body>
 <!--Aqui empieza la cabecera-->
-    <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
-        <a class="navbar-brand" href="index.html"><img src="img/logo1.svg"  height="90px"  alt="Foto Logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
+    <a class="navbar-brand" id="logo" href="index.html"><img src="img/logo1.svg"  height="90px"  alt="Foto Logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                  <a class="nav-link" href="quienSoy.html">Quienes Somos?</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="blog.html">Blog</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="tienda.html">Asesoramiento</a>
-              </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-              <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Log In</button></a>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="quienSoy.html">Quienes Somos?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="asesoramiento.html">Asesoramiento</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" id="botones">
+            <a href="" class="btn btn-default btn-rounded" data-toggle="modal"  data-target="#botonlogin"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Iniciar Sesión</button></a>
 
-              <br><br>
-            <a    >  <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Registrarse</button></a>
+            <br><br>
+          <a href="" class="btn btn-default btn-rounded" data-toggle="modal"  data-target="#registrarse">  <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Registrarse</button></a>
 
 
-          </form>
-      </div>
-    </nav>
-    <!--Aqui empieza el login modal-->
-    <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <!--Content-->
-            <div class="modal-content form-elegant">
-                <!--Header-->
-                <div class="modal-header text-center">
-                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Web Personal Trainer Lorenzo </strong></h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <!--Body-->
-                <div class="modal-body mx-4">
-                    <!--Body-->
-                    <div class="md-form mb-5">
-                        <input type="email" id="Form-email1" class="form-control validate">
-                        <label data-error="wrong" data-success="right" for="Form-email1">Introduce tu correo</label>
-                    </div>
-
-                    <div class="md-form pb-3">
-                        <input type="password" id="Form-pass1" class="form-control validate">
-                        <label data-error="wrong" data-success="right" for="Form-pass1">Introduce tu contraseña</label>
-                        <p class="font-small blue-text d-flex justify-content-end">Olvidaste <a href="#" class="blue-text ml-1"> Contraseña?</a></p>
-                    </div>
-
-                    <div class="text-center mb-3">
-                        <button type="button" class="btn btn-danger btn-block btn-rounded z-depth-1a">Sign in</button>
-                    </div>
-                    <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
-
-                        <div class="row my-3 d-flex justify-content-center">
-                            <!--Facebook-->
-                            <button type="button" class="btn btn-danger btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook text-center"></i></button>
-                            <!--Twitter-->
-                            <button type="button" class="btn btn-danger btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"></i></button>
-                            <!--Google +-->
-                            <button type="button" class="btn btn-danger btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-google-plus"></i></button>
-                        </div>
-                </div>
-                <!--Footer-->
-                <div class="modal-footer mx-5 pt-3 mb-1">
-                    <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1"> Sign Up</a></p>
-                </div>
-            </div>
-            <!--/.Content-->
-        </div>
+        </form>
     </div>
 
-  <!-- AQUI ACABA EL LOGIN---->
+</nav>
+<!--Aqui empieza el login modal-->
+<div class="modal fade" id="botonlogin" role="dialog">
+<div class="modal-dialog ">
+
+<div class="modal-content">
+  <div class="modal-header text-center">
+      <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" ><strong>Web Personal Trainer Lorenzo </strong></h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+     <form action="#" method="post" id="login">
+      <div class="form-group">
+        <label for="usuario">Usuario:</label>
+        <input type="text" class="form-control" id="usuario" placeholder="" name="usu">
+      </div>
+      <div class="form-group">
+        <label for="pass">Contraseña:</label>
+        <input type="password" class="form-control" id="pass" placeholder="" name="pass">
+      </div>
+      <button  class="btn btn-danger btn-block btn-rounded z-depth-1a" type="submit" >Iniciar Sesión</button><br>
+      <div id="errores" class='errores'>
+
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+
+<!-- AQUI ACABA EL LOGIN---->
+<!--AQUI EMPIEZA REGISTRO--->
+<div class="modal fade" id="registrarse" role="dialog">
+<div class="modal-dialog ">
+
+<div class="modal-content">
+<div class="modal-header text-center">
+    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="registrarse"><strong>Web Personal Trainer Lorenzo </strong></h3>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="form-signin" id="registro" name="formulario" method="post">
+    <div class="form-group">
+      <label for="usuario">Nombre:</label>
+      <input type="text" class="form-control" id="usuario1" placeholder="" name="usu1">
+    </div>
+    <div class="form-group">
+      <label for="email1">Email:</label>
+      <input type="text" class="form-control" id="email1" placeholder="" name="email1">
+    </div>
+    <div class="form-group">
+      <label for="pass">Contraseña:</label>
+      <input type="password" class="form-control" id="pass1" placeholder="" name="pass1">
+    </div>
+    <div class="form-group">
+        <label for="confpass">Confirmar Contraseña:</label>
+      <input type="password" class="form-control" id="confpass" placeholder="" name="pass2">
+    </div>
+    <button type="submit" class="btn btn-danger btn-block btn-rounded z-depth-1a" id="enviar">Registrarse</button><br>
+    <div class="checkbox">
+      <label><input type="checkbox" value="" id="condiciones"> Acepto los<a href="#">Términos y condiciones.</a></label>
+    </div>
+    <div id="error2" class='error2'>
+
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+
+<!---AQUI ACABA REGISTRO--->
     <main role="main" class="container">
       <!--        AQUI EMPIEZA MI CONTENIDO DE LA PAGINA-->
       <h1>Nutricionista y Personal Trainer | Online – Presencial</h1>
@@ -260,7 +290,8 @@
     Recordad que si quereis un cambio físico y de salud , aparte de nuestra ayuda ,tendreís que darlo todo vosotros tambien y sacrificaros al 100%
     en los entrenes, dietas .
     Recordad "NEVER GIVE UP!!"</p>
-
+    <img id="animacion"src="img/animacion.jpg" width="180px" alt="animacion">
+      <br><br><br><br><br><br><br><br>
 
        <div class="span12">
     <p id="coordinates"></p>
@@ -325,6 +356,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script src="js/index.js"></script>
 
 </html>

@@ -16,7 +16,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <link href="js/index.js" rel="stylesheet">
     <!--LOGO EN LA VENTANA NAVEGACION ARRIBA-->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- El css del index  -->
@@ -49,7 +49,7 @@
                     <a class="nav-link" href="asesoramiento.html">Asesoramiento</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0" id="botones">
                 <a href="" class="btn btn-default btn-rounded" data-toggle="modal"  data-target="#botonlogin"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Iniciar Sesión</button></a>
 
                 <br><br>
@@ -69,12 +69,12 @@
       <div class="modal-content">
         <div class="modal-header text-center">
             <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" ><strong>Web Personal Trainer Lorenzo </strong></h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-           <form action="#" method="post" id="botonlogin1">
+           <form action="#" method="post" id="login">
             <div class="form-group">
               <label for="usuario">Usuario:</label>
               <input type="text" class="form-control" id="usuario" placeholder="" name="usu">
@@ -84,7 +84,7 @@
               <input type="password" class="form-control" id="pass" placeholder="" name="pass">
             </div>
             <button  class="btn btn-danger btn-block btn-rounded z-depth-1a" type="submit" >Iniciar Sesión</button><br>
-            <div class='error'>
+            <div id="errores" class='errores'>
 
             </div>
           </form>
@@ -102,14 +102,14 @@
     <div class="modal-content">
       <div class="modal-header text-center">
           <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="registrarse"><strong>Web Personal Trainer Lorenzo </strong></h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
               <span aria-hidden="true">&times;</span>
           </button>
       </div>
       <div class="modal-body">
-          <form class="form-signin" id="registro" name="formulario" onsubmit="return validarFormulario()" method="post">
+          <form class="form-signin" id="registro" name="formulario" method="post">
           <div class="form-group">
-            <label for="usuario">Usuario:</label>
+            <label for="usuario">Nombre:</label>
             <input type="text" class="form-control" id="usuario1" placeholder="" name="usu1">
           </div>
           <div class="form-group">
@@ -122,13 +122,13 @@
           </div>
           <div class="form-group">
               <label for="confpass">Confirmar Contraseña:</label>
-            <input type="password" class="form-control" id="confpass" placeholder="">
+            <input type="password" class="form-control" id="confpass" placeholder="" name="pass2">
           </div>
-          <button type="button" class="btn btn-danger btn-block btn-rounded z-depth-1a">Registrarse</button><br>
+          <button type="submit" class="btn btn-danger btn-block btn-rounded z-depth-1a" id="enviar">Registrarse</button><br>
           <div class="checkbox">
             <label><input type="checkbox" value="" id="condiciones"> Acepto los<a href="#">Términos y condiciones.</a></label>
           </div>
-          <div class='error2'>
+          <div id="error2" class='error2'>
 
           </div>
         </form>
@@ -145,27 +145,27 @@
 
     <main role="main" class="container">
       <!-- Titulo y Servicios       AQUI EMPIEZA MI CONTENIDO DE LA PAGINA-->
-          <h2>Definición:</h2>
+          <h2>Multifibras:</h2>
 
           <div class="row">
             <div class="col-lg-4 col-sm-6 portfolio-item">
               <!--Estas son  las cajas que he creado con cada servicio-->
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/definicion1.jpeg" alt="Foto Entrene Muscular"></a>
+                <a href="#"><img class="card-img-top" src="img/multifibras1.jpeg" alt="Foto Entrene Muscular"></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#">Dia 1:</a>
                   </h4>
                   <p class="card-text">
                   <br><h4>Pecho-Biceps</h4>
-                  <br><strong>Se realiza en forma de circuito,</strong>
-                  <br><strong>1 serie de cada ejericio</strong>
-                  <br>Press Banca: 4x15reps
-                  <br>Cruce de poleas:4x15 reps
-                  <br>Curl Biceps alterno:4x15reps
-                  <br>Curl Biceps Barra Z:4x15 reps
-                  <br><strong>Cardio 30 min</strong>
-
+                  <br>Press Banca: 3x25-20-15-10-8-5 reps
+                  <br><strong>2min pausa entre series</strong>
+                  <br>Cruce de poleas:3x25-20-15-10-8-5 reps
+                  <br><strong>2min pausa entre series</strong>
+                  <br>Curl Biceps alterno:3x25-20-15-10-8-5 reps
+                  <br><strong>2min pausa entre series</strong>
+                  <br>Curl Biceps Barra Z:3x25-20-15-10-8-5 reps
+                  <br><strong>2min pausa entre series</strong>
 
 
 
@@ -176,20 +176,21 @@
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/definicion2.jpeg" alt="Foto masa muscular"></a>
+                <a href="#"><img class="card-img-top" src="img/multifibras2.jpeg" alt="Foto masa muscular"></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#">Dia 2:</a>
                   </h4>
                   <p class="card-text">
                     <br><h4>Espalda-Triceps</h4>
-                    <br><strong>Se realiza en forma de circuito,</strong>
-                    <br><strong>1 serie de cada ejericio</strong>
-                    <br>Dominadas:4x15reps
-                    <br>Jalon al pecho:4x15reps
-                    <br>Peso muerto:4x15 reps
-                    <br>Triceps cuerda:4x15 reps
-                    <br><strong>Cardio 30 min</strong>
+                    <br>Dominadas:3x25-20-15-10-8-5 reps
+                    <br><strong>2min pausa entre series</strong>
+                    <br>Jalon al pecho:3x25-20-15-10-8-5 reps
+                    <br><strong>2min pausa entre series</strong>
+                    <br>Peso muerto:3x25-20-15-10-8-5 reps
+                    <br><strong>2min pausa entre series</strong>
+                    <br>Triceps cuerda:3x25-20-15-10-8-5 reps
+                    <br><strong>2min pausa entre series</strong>
                   </p>
 
                 </div>
@@ -197,20 +198,20 @@
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/definicion3.jpeg" alt="Foto masa muscular"></a>
+                <a href="#"><img class="card-img-top" src="img/multifibras3.jpeg" alt="Foto masa muscular"></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#">Dia 3:</a>
                   </h4>
                   <p class="card-text">
                     <br><h4>Cuadriceps/Femoral</h4>
-                    <br><strong>Se realiza en forma de circuito,</strong>
-                    <br><strong>1 serie de cada ejericio</strong>
-                    <br>Prensa Inclinada:4x15
-                    <br>Lunch en multipower:4x15
-                    <br>Peso muerto rumano:4x15
-                    <br>Extensiones:4x15
-                    <br><strong>Cardio 30 min</strong>
+                    <br>Prensa Inclinada:3x25-20-15-10-8-5
+                    <br><strong>2min pausa entre series</strong>
+                    <br>Lunch en multipower:3x25-20-15-10-8-5
+                    <br><strong>2min pausa entre series</strong>
+                    <br>Peso muerto rumano:3x25-20-15-10-8-5
+                    <br><strong>2min pausa entre series</strong>
+                    <br>Extensiones:3x25-20-15-10-8-5
                   </p>
 
                 </div>
@@ -274,5 +275,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
+<script src="js/index.js"></script>
 </html>
