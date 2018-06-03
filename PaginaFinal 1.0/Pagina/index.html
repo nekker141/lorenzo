@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <!--load everything-->
+  <script defer src="/static/fontawesome/fontawesome-all.js"></script>
+    <script defer src="/static/fontawesome/fontawesome-all.js"></script>
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Personal Trainer Lorenzo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="js/index.js" rel="stylesheet">
+    <!-- El css del index  -->
+  <link href="css/index.css" rel="stylesheet">
+  <!--LOGO EN LA VENTANA NAVEGACION ARRIBA-->
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+  <!-- Alertifyjs -->
+  <script src="../alertifyjs/alertify.min.js"></script>
+  <link rel="stylesheet" href="../alertifyjs/css/alertify.min.css" />
+  <link rel="stylesheet" href="../alertifyjs/css/themes/default.min.css" />
+</head>
+
+
+<body>
+<!--Aqui empieza la cabecera-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
+        <a class="navbar-brand" id="logo" href="#"><img src="img/logo1.svg"  height="90px"  alt="Foto Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="quienSoy.html">Quienes Somos?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="asesoramiento">Asesoramiento</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" id="botones">
+                <a href="" class="btn btn-default btn-rounded" data-toggle="modal"  data-target="#botonlogin"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Iniciar Sesión</button></a>
+
+                <br><br>
+              <a href="" class="btn btn-default btn-rounded" data-toggle="modal"  data-target="#registrarse">  <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Registrarse</button></a>
+
+
+            </form>
+        </div>
+
+    </nav>
+    <!--Aqui empieza el carousel-->
+    <header>
+      <!--Aqui empieza el login modal-->
+      <div class="modal fade" id="botonlogin" role="dialog">
+    <div class="modal-dialog ">
+
+      <div class="modal-content">
+        <div class="modal-header text-center">
+            <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" ><strong>Web Personal Trainer Lorenzo </strong></h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+           <form action="#" method="post" id="login">
+            <div class="form-group">
+              <label for="usuario">Usuario:</label>
+              <input type="text" class="form-control" id="usuario" placeholder="" name="usu">
+            </div>
+            <div class="form-group">
+              <label for="pass">Contraseña:</label>
+              <input type="password" class="form-control" id="pass" placeholder="" name="pass">
+            </div>
+
+              <input type="checkbox" value="" id="recordarme">Recordarme.</input>
+
+            <button  class="btn btn-danger btn-block btn-rounded z-depth-1a" type="submit" >Iniciar Sesión</button><br>
+            <div id="errores" class='errores'>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <!-- AQUI ACABA EL LOGIN---->
+    <!--AQUI EMPIEZA REGISTRO--->
+    <div class="modal fade" id="registrarse" role="dialog">
+  <div class="modal-dialog ">
+
+    <div class="modal-content">
+      <div class="modal-header text-center">
+          <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="registrarse"><strong>Web Personal Trainer Lorenzo </strong></h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <form class="form-signin" id="registro" name="formulario" method="post">
+          <div class="form-group">
+            <label for="usuario">Nombre:</label>
+            <input type="text" class="form-control" id="usuario1" placeholder="" name="usu1">
+          </div>
+          <div class="form-group">
+            <label for="email1">Email:</label>
+            <input type="text" class="form-control" id="email1" placeholder="" name="email1">
+          </div>
+          <div class="form-group">
+            <label for="pass">Contraseña:</label>
+            <input type="password" class="form-control" id="pass1" placeholder="" name="pass1">
+          </div>
+          <div class="form-group">
+              <label for="confpass">Confirmar Contraseña:</label>
+            <input type="password" class="form-control" id="confpass" placeholder="" name="pass2">
+          </div>
+          <button type="submit" class="btn btn-danger btn-block btn-rounded z-depth-1a" id="enviar">Registrarse</button><br>
+          <div class="checkbox">
+            <label><input type="checkbox" value="" id="condiciones"> Acepto los<a href="#">Términos y condiciones.</a></label>
+          </div>
+          <div id="error2" class='error2'>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+    <!---AQUI ACABA REGISTRO--->
+<div class="text-center">
+</div>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Imagen 1 del carrousel -->
+          <div class="carousel-item "  style="background-image: url('http://tumejortusportcenter.com/wp-content/uploads/2017/12/entrenador-personal-burriana.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+
+            </div>
+          </div>
+          <!-- Imagen 2 del carousel -->
+          <div class="carousel-item active" style="background-image: url('https://www.24hourfitness.com/images/pages/personal_training/pt-banner-desktop.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+
+
+            </div>
+          </div>
+          <!-- Imagen 3 del carousel -->
+          <div class="carousel-item" style="background-image: url('https://img.milanuncios.com/fg/2413/29/241329982_1.jpg?VersionId=SGb7xBBI.XSl_mScf3ai._7vnwGupJ4x')">
+            <div class="carousel-caption d-none d-md-block">
+
+
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+      </div>
+    </header>
+    <!-- Servicios que ofrece mi pagina -->
+	<section id="what-we-do">
+		<div class="container-fluid">
+			<h2 class="section-title mb-2 h1">¿A que se dedica nuestra pagina?</h2>
+			<p class="text-center text-muted h5">En nuestra pagina web encontraras todo lo necesario para poder conseguir y mantener un cuerpo y un estilo de vida saludable. </p>
+			<div class="row mt-5">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card">
+						<div class="card-block block-1">
+							<h3 class="card-title">Asesoramientos</h3>
+							<p class="card-text">Nos dedicamos a hacer asesoramientos personalizados para nuestros usuarios.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card">
+						<div class="card-block block-2">
+							<h3 class="card-title">Blogs</h3>
+							<p class="card-text">El blog es donde resolvemos las dudas de nuestros usuarios.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card">
+						<div class="card-block block-3">
+							<h3 class="card-title">Novedades</h3>
+							<p class="card-text">Novedades sobre ejercicios especificos,dietas,dudas importantes etc...</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card">
+						<div class="card-block block-4">
+							<h3 class="card-title">Conseguir una vida saludable</h3>
+							<p class="card-text">Enseñamos a nuestros usuarios tener una vida mas saludable.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card">
+						<div class="card-block block-5">
+							<h3 class="card-title">Dietas Flexibles</h3>
+							<p class="card-text">Enseñamos a nuestros usuarios a tener dietas mas llevaderas y sanas.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card">
+						<div class="card-block block-6">
+							<h3 class="card-title">Entrenamientos </h3>
+							<p class="card-text">Hacemos entrenamientos para las necesidas de nuestros clientes(oposiciones etc..).</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Servicios que ofrece mi pagina -->
+
+    <main role="main" class="container">
+      <!-- Titulo y Servicios       AQUI EMPIEZA MI CONTENIDO DE LA PAGINA-->
+          <h2>Tipos de Entrenes:</h2>
+
+          <div class="row">
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+              <!--Estas son  las cajas que he creado con cada servicio-->
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="img/reto.jpeg" alt="Foto potenciar musculo"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="masaMuscular.html">Ganar masa muscular</a>
+                  </h4>
+                  <p class="card-text">
+                    Nosotros nos ocupamos de realizar dietas personalizadas para cualquier tipo de clientes,os ayudamos a conseguir vuestro proposito
+                    con diferentes tipos de dietas.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="img/entrenes.jpeg" alt="Foto entrenamientos"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="multifibras.html">Entrenes Multifibras</a>
+                  </h4>
+                  <p class="card-text">
+                    Realizamos Entrenamientos personalizados para conseguir tus metas. Nos ocupamos de realizar cualquier tipo de
+                    preparacion("oposiciones para policias,bomberos,futbolistas o incluso para competiciones de Fisioculturismo y Fitness")
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="img/potenciar.jpeg" alt="Foto competidores"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="definicion.html">Entrenes Definición</a>
+                  </h4>
+                  <p class="card-text">
+                    Aqui mostramos a algunos de nuestros Clientes que participaron en competiciones de Fisioculturismo y Fitness.
+                    Mostrando su mejor estado fisico.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ACABA FILA TIPOS ENTRENES -->
+          <h2>Tipos de Dietas:</h2>
+
+          <div class="row">
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+              <!--Estas son  las cajas que he creado con cada servicio-->
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="img/dieta.jpeg" alt="Foto Dietas"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="dietas.html">Dieta definicion</a>
+                  </h4>
+                  <p class="card-text">
+                    Nosotros nos ocupamos de realizar dietas personalizadas para cualquier tipo de clientes,os ayudamos a conseguir vuestro proposito
+                    con diferentes tipos de dietas.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="img/volumen.jpeg" alt="Foto dieta volumen"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="dietaVolumen.html">Dieta Volumen</a>
+                  </h4>
+                  <p class="card-text">
+                    Nosotros nos ocupamos de realizar dietas personalizadas para cualquier tipo de clientes,os ayudamos a conseguir vuestro proposito
+                    con diferentes tipos de dietas.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="img/definicion.jpeg" alt="Foto dieta bajar peso"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="bajarPeso.html">Bajar Peso</a>
+                  </h4>
+                  <p class="card-text">
+                    Nosotros nos ocupamos de realizar dietas personalizadas para cualquier tipo de clientes,os ayudamos a conseguir vuestro proposito
+                    con diferentes tipos de dietas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ACABA TIPOS DIETAS-->
+
+
+          <hr>
+        </div>
+    </main>
+<!-- /.container -->
+<!-- Footer-Aqui comienza el footer -->
+<footer>
+    <div class="footer bg-dark" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4  col-md-4 col-sm-4 col-xs-12">
+                    <h3> Noticias </h3>
+                    <ul>
+                        <li> <a href="#"> Novedades </a> </li>
+                        <li> <a href="#"> Perdes grasa Sin cardio </a> </li>
+                        <li> <a href="#"> Dieta Flexible? </a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-4 col-xs-12">
+                    <h3>Mas info: </h3>
+                    <ul>
+                      <li> <a href="#">642168553</a></li>
+                      <li> <a href="#">Ptrainer@gmail.com</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-4 col-xs-12 ">
+                    <h3> Sigueme en: </h3>
+
+                    <ul class="social">
+                        <li> <a href="#"> <i class=" fa fa-facebook"> </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-twitter"></i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-google-plus"></i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-youtube"></i> </a> </li>
+                    </ul>
+                </div>
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.footer-->
+</footer>
+</body>
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+<script src="js/index.js"></script>
+
+</html>
