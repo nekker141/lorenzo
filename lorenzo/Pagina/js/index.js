@@ -23,7 +23,6 @@
     // Botón cerrar sesión
 
       $("#cerrarsesion").click(function(){
-        alert("hola");
         sessionStorage.removeItem("username");
         localStorage.removeItem("username");
         window.location.href = "index.html";
@@ -63,7 +62,6 @@
                 // Botón cerrar sesión
 
                 $("#cerrarsesion").click(function(){
-                  alert("hola");
                   sessionStorage.removeItem("username");
                   localStorage.removeItem("username");
                   window.location.href = "index.html";
